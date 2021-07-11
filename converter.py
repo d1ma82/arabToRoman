@@ -17,35 +17,35 @@ def to_arab(roman):
 
         if cur_val < last_val: result -= cur_val
         else:                  result += cur_val
-        
+
         last_val = cur_val
-    return result  
+    return result
 
 
 def to_roman(arabic):
     key = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
     value = ["I", "IV", "V", "IX", "X", "XL", "L", "XC","C", "CD", "D", "CM", "M"]
-    
+
     result = ""
     i = len(key) - 1;
-    
+
     while arabic > 0:
         while key[i] > arabic: i -= 1
         arabic -= key[i]
-        result += value[i]           
+        result += value[i]
     return result
 
 def to_roman_cort(arabic):
     dic = [(1, "I"), (4, "IV"), (5, "V"), (9, "IX"), (10, "X"), (40, "XL"), (50, "L"), \
            (90, "XC"), (100, "C"), (400, "CD"), (500, "D"), (900, "CM"), (1000, "M")]
-    
+
     result = ""
     for key, val in reversed(dic):
         while arabic >= key:
             print(key)
             arabic -= key
             result += val
-    return result               
+    return result
 
 def to_roman_dic(arabic):
     dic = {1:"I", 4:"IV", 5:"V", 9:"IX", 10:"X", 40:"XL", 50:"L", 90:"XC", \
@@ -62,9 +62,8 @@ def to_roman_dic(arabic):
 def main():
     print(scrypt)
     if int(first) == 1:
-        print(second + ' - ' + to_arab(second))
+        print(second + ' - ' + str(to_arab(second)))
     else:
-            print(second + ' - ' + to_roman_dic(int(second)))
+        print(second + ' - ' + to_roman_dic(int(second)))
 
-main()            
-          
+main()
